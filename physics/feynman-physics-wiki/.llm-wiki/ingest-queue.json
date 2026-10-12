@@ -1,0 +1,282 @@
+[
+  {
+    "id": "ingest-1791796154866-ks8yen",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/01-坐在高铁上.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": "Paused after provider usage limit: Analysis failed: HTTP 429: Too Many Requests — {\"error\":{\"code\":\"1113\",\"message\":\"余额不足或无可用资源包,请充值。\"}}",
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-wuezx3",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/02-向上抛球.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-m38vg2",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/03-公交车急刹车.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-yku4op",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/04-转圈时世界在转.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-acc7od",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/05-火箭为什么能飞出地球.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-yp7szt",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/06-如果地球突然停止转动.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-pphgiz",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/07-摩擦起电的魔术.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-3p394x",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/08-正负电荷的喜欢与讨厌.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-1asctq",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/14-热不是一种热物质.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-yj9t7a",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/15-分子的疯狂舞蹈.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-l80xus",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/16-温度是什么.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-09sdpd",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/17-绝对零度.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-7hwmus",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/18-为什么冰会浮在水上.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-6duh3s",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/19-蒸发与冷凝.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-l90xft",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/20-摩擦生热.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-2myfqj",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/21-为什么大船能浮在水面上.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-td9xvd",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/22-压强是什么.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-fw1vq6",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/23-潜水员为什么要慢慢上来.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-iuqxoy",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/24-飞机翅膀为什么能飞.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-dqa90e",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/25-连通器与喷泉.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-gugapm",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/26-综合回旋-一次完整的飞行.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-ko4u85",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/README.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-d9ior1",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/阶段小结-第14-20讲.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-a3hbyi",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/01_第一阶段_7-8岁/讲次/阶段小结-第一阶段收官.md",
+    "folderContext": "01_第一阶段_7-8岁 > 讲次",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791796154866-o4s22b",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/05_知识地图与复盘/spiral-map.md",
+    "folderContext": "05_知识地图与复盘",
+    "status": "pending",
+    "addedAt": 1791796154866,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791797190671-quyk5x",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/00_体系总纲/6-7岁第一阶段完整20讲.md",
+    "folderContext": "00_体系总纲",
+    "status": "pending",
+    "addedAt": 1791797190671,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791797203788-lz90l0",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/05_知识地图与复盘/6-7岁第一阶段20讲目录.md",
+    "folderContext": "05_知识地图与复盘",
+    "status": "pending",
+    "addedAt": 1791797203788,
+    "error": null,
+    "retryCount": 0
+  },
+  {
+    "id": "ingest-1791797690534-gmc1yc",
+    "projectId": "46baaaa5-34b3-42a7-a6ab-176692db3c3a",
+    "sourcePath": "raw/sources/05_知识地图与复盘/6-7岁与7-8岁主线对比.md",
+    "folderContext": "05_知识地图与复盘",
+    "status": "pending",
+    "addedAt": 1791797690534,
+    "error": null,
+    "retryCount": 0
+  }
+]

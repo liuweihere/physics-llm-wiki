@@ -1,0 +1,60 @@
+[
+  {
+    "type": "duplicate",
+    "title": "四根主线说明可能与 purpose.md 内容重叠",
+    "description": "本文件所指内容与 `00_体系总纲/purpose.md` 存在重叠风险：purpose.md 已给出四根主线的名称与一句话释义。若未来填充 `00_体系总纲/四根主线说明.md` 时仅复述这些名称，将产生重复页面。真正不可替代的价值只可能在「交叉关系」与「阶段性回旋路径」两块——建议用户确认是否按此边界填充，或将该文件判定为与 purpose.md 合并。",
+    "sourcePath": "/Users/mialiu/repository/llm-wiki/physics/feynman-physics-wiki/raw/sources/00_体系总纲/四根主线说明.md",
+    "affectedPages": [
+      "wiki/sources/6-00体系总纲--6-四根主线说明--xfv459.md",
+      "wiki/主线/四根主线的交叉关系.md",
+      "wiki/概念/阶段性回旋路径.md"
+    ],
+    "searchQueries": [
+      "费曼 物理学 螺旋式上升 课程设计 主线交叉",
+      "儿童物理启蒙 跨主题 概念整合 教学设计",
+      "physics curriculum spiral progression conceptual threads integration"
+    ],
+    "options": [
+      {
+        "label": "Create Page",
+        "action": "Create Page"
+      },
+      {
+        "label": "Skip",
+        "action": "Skip"
+      }
+    ],
+    "id": "review-22a03480",
+    "resolved": true,
+    "createdAt": 1791796314007,
+    "resolvedAction": "Skip"
+  },
+  {
+    "type": "suggestion",
+    "title": "为讲次设计建立「四主线对齐检查表」",
+    "description": "源文件宣告的待补充内容中，「交叉关系」一项在讲次设计时最直接的用途是作为对齐检查表：每个讲次都应能明确指出它回旋到哪一条或哪几条主线。当前 wiki 缺少这一聚合视图。建议在补全 7–8 岁讲次前先补齐 [[主线/四根主线的交叉关系]]，并确认其粒度（按主题 / 按讲次 / 按实验）。",
+    "sourcePath": "/Users/mialiu/repository/llm-wiki/physics/feynman-physics-wiki/raw/sources/00_体系总纲/四根主线说明.md",
+    "affectedPages": [
+      "wiki/主线/四根主线的交叉关系.md"
+    ],
+    "searchQueries": [
+      "概念整合 检查表 课程对齐 跨学科教学设计",
+      "小学科学 物理 主题 映射 教学规划",
+      "curriculum alignment matrix concept mapping science education"
+    ],
+    "options": [
+      {
+        "label": "Create Page",
+        "action": "Create Page"
+      },
+      {
+        "label": "Skip",
+        "action": "Skip"
+      }
+    ],
+    "id": "review-25eb2e24",
+    "resolved": true,
+    "createdAt": 1791796314007,
+    "resolvedAction": "Skip"
+  }
+]

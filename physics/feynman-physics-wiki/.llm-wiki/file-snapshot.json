@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "updatedAt": 1791797690121,
+  "files": {
+    "purpose.md": {
+      "hash": "f3a2eaea03f8493a2b0f634e9210477d",
+      "size": 6605,
+      "mtimeMs": 1791797212055
+    },
+    "raw/sources/00_体系总纲/6-7岁第一阶段完整20讲.md": {
+      "hash": "a76d916b1171fe2297e13eb8b5ea199e",
+      "size": 32941,
+      "mtimeMs": 1791797189463
+    },
+    "raw/sources/00_体系总纲/purpose.md": {
+      "hash": "a995cc7fd4bf436bf72aca9efa4fb024",
+      "size": 147,
+      "mtimeMs": 1791794064769
+    },
+    "raw/sources/00_体系总纲/四根主线说明.md": {
+      "hash": "16bb8947494247bf1f202368f31709c7",
+      "size": 107,
+      "mtimeMs": 1791794064879
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/01-坐在高铁上.md": {
+      "hash": "4df8d36e5584348e2607d5595ed95ac9",
+      "size": 1270,
+      "mtimeMs": 1791795577260
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/02-向上抛球.md": {
+      "hash": "3f314bdea0165ceab578c09eb6823180",
+      "size": 1129,
+      "mtimeMs": 1791795577389
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/03-公交车急刹车.md": {
+      "hash": "535bc4b25ddd3978c25901a4c8d744ba",
+      "size": 1096,
+      "mtimeMs": 1791795577511
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/04-转圈时世界在转.md": {
+      "hash": "1308dd27dcf8b82b9bacfbee136134d2",
+      "size": 1071,
+      "mtimeMs": 1791795577636
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/05-火箭为什么能飞出地球.md": {
+      "hash": "2df932b5c0a97323be28ff79726212a9",
+      "size": 1046,
+      "mtimeMs": 1791795577759
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/06-如果地球突然停止转动.md": {
+      "hash": "4814300783c4e5566e2d3a53f231e6e0",
+      "size": 1120,
+      "mtimeMs": 1791795577881
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/07-摩擦起电的魔术.md": {
+      "hash": "63a263196056eb34f31d8f6b1fb662a2",
+      "size": 1093,
+      "mtimeMs": 1791795578005
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/08-正负电荷的喜欢与讨厌.md": {
+      "hash": "a921c4b0836db1c031ba1d953d1eac3b",
+      "size": 1110,
+      "mtimeMs": 1791795578124
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/14-热不是一种热物质.md": {
+      "hash": "47d2fcce723642f6ebe56efdf40c51ce",
+      "size": 1210,
+      "mtimeMs": 1791795731242
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/15-分子的疯狂舞蹈.md": {
+      "hash": "562fd90aa26dee9646d580f0f6f63650",
+      "size": 1161,
+      "mtimeMs": 1791795731401
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/16-温度是什么.md": {
+      "hash": "7f688d5b5f972a51df5ae777760a837e",
+      "size": 1119,
+      "mtimeMs": 1791795731729
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/17-绝对零度.md": {
+      "hash": "79f977cee439a0d2919b012564df66dc",
+      "size": 1075,
+      "mtimeMs": 1791795731968
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/18-为什么冰会浮在水上.md": {
+      "hash": "71f1a7c7b0724c3b77643ee080987fa0",
+      "size": 1088,
+      "mtimeMs": 1791795732233
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/19-蒸发与冷凝.md": {
+      "hash": "0f7d3a07b15af08112e8c1260a2d514e",
+      "size": 1124,
+      "mtimeMs": 1791795732408
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/20-摩擦生热.md": {
+      "hash": "b5058f6aa6247e63c3c6ad933e05df36",
+      "size": 1162,
+      "mtimeMs": 1791795732572
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/21-为什么大船能浮在水面上.md": {
+      "hash": "43c495e062b27606bea7140f39ae373f",
+      "size": 1192,
+      "mtimeMs": 1791795847586
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/22-压强是什么.md": {
+      "hash": "c93578a082baaf49c809de3d8907dfa0",
+      "size": 1166,
+      "mtimeMs": 1791795847714
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/23-潜水员为什么要慢慢上来.md": {
+      "hash": "579f8c14089946b8c91d01f45703046f",
+      "size": 1118,
+      "mtimeMs": 1791795847837
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/24-飞机翅膀为什么能飞.md": {
+      "hash": "d656545b3d5b3639c8328c91f459bf43",
+      "size": 1173,
+      "mtimeMs": 1791795847959
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/25-连通器与喷泉.md": {
+      "hash": "c6f54f1ac41e4e1414071320b2da65ba",
+      "size": 1128,
+      "mtimeMs": 1791795848140
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/26-综合回旋-一次完整的飞行.md": {
+      "hash": "caab2d8e198c70ee94fba230df7a341f",
+      "size": 1585,
+      "mtimeMs": 1791795848296
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/README.md": {
+      "hash": "d1a097c3a5d9887fde48297e23429eef",
+      "size": 1115,
+      "mtimeMs": 1791795860297
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/阶段小结-第14-20讲.md": {
+      "hash": "3c873fe9daa5273ccefa7f64892e4181",
+      "size": 352,
+      "mtimeMs": 1791795732754
+    },
+    "raw/sources/01_第一阶段_7-8岁/讲次/阶段小结-第一阶段收官.md": {
+      "hash": "4b67af9b15d8c224ba9b48c9e26c275e",
+      "size": 652,
+      "mtimeMs": 1791795848449
+    },
+    "raw/sources/05_知识地图与复盘/6-7岁与7-8岁主线对比.md": {
+      "hash": "fabe89f1ada732415f881af33bbe2ebf",
+      "size": 4777,
+      "mtimeMs": 1791797688975
+    },
+    "raw/sources/05_知识地图与复盘/6-7岁第一阶段20讲目录.md": {
+      "hash": "06f6e13004d905c527b2c968b5c07fca",
+      "size": 3328,
+      "mtimeMs": 1791797202764
+    },
+    "raw/sources/05_知识地图与复盘/spiral-map.md": {
+      "hash": "c90e385fcf462acad05be3f0937479d5",
+      "size": 2803,
+      "mtimeMs": 1791795404396
+    },
+    "schema.md": {
+      "hash": "d6f57c1b7ca0b8ad530fa5979b0d3c33",
+      "size": 905,
+      "mtimeMs": 1791794064364
+    },
+    "wiki/entities/小星星.md": {
+      "hash": "c9993fcd0774de89e1015ad3880345f3",
+      "size": 1510,
+      "mtimeMs": 1791796236451
+    },
+    "wiki/entities/小星星物理学螺旋上升体系.md": {
+      "hash": "d6b4ec6c8a64e005fe6f036b4110e158",
+      "size": 2715,
+      "mtimeMs": 1791796236455
+    },
+    "wiki/entities/理查德-费曼.md": {
+      "hash": "0889b72f130797f483e09d0955fffc0f",
+      "size": 1500,
+      "mtimeMs": 1791796236453
+    },
+    "wiki/index.md": {
+      "hash": "47098a56cc5b3cf3c034db75eb2e5a9a",
+      "size": 1229,
+      "mtimeMs": 1791796314002
+    },
+    "wiki/log.md": {
+      "hash": "3c9524d196cb3f3562ab2d55a1e14db1",
+      "size": 3181,
+      "mtimeMs": 1791796313995
+    },
+    "wiki/sources/6-00体系总纲--6-四根主线说明--xfv459.md": {
+      "hash": "e4e0f7bd705f65e54f83dfdb17a706af",
+      "size": 4103,
+      "mtimeMs": 1791796313987
+    },
+    "wiki/sources/6-00体系总纲--7-purpose--1q1zzof.md": {
+      "hash": "b3fd2e9ea67392a0f26a8a518ca1e7d3",
+      "size": 2663,
+      "mtimeMs": 1791796236447
+    },
+    "wiki/主线/四根主线的交叉关系.md": {
+      "hash": "ca797f3acf4d75bfe4713463c7ee65b0",
+      "size": 2218,
+      "mtimeMs": 1791796313990
+    },
+    "wiki/主线/物质的微观建筑.md": {
+      "hash": "dea49f5f2e89edf77fe9d7763b6d9426",
+      "size": 2513,
+      "mtimeMs": 1791796263913
+    },
+    "wiki/主线/相互作用与场.md": {
+      "hash": "4a5f3b9eed13e16ff35a58f50408f134",
+      "size": 2126,
+      "mtimeMs": 1791796252747
+    },
+    "wiki/主线/能量与账本.md": {
+      "hash": "91910c9b5afe670ceaf0f49c983bf0f8",
+      "size": 1927,
+      "mtimeMs": 1791796258080
+    },
+    "wiki/主线/运动与时空.md": {
+      "hash": "15772abe686d75216dcc8d184126d23b",
+      "size": 2081,
+      "mtimeMs": 1791796245564
+    },
+    "wiki/概念/三位一体工具载体.md": {
+      "hash": "4a3ef1dc2a62b4b844758b93a1b56566",
+      "size": 1552,
+      "mtimeMs": 1791796263921
+    },
+    "wiki/概念/三阶段路径.md": {
+      "hash": "ecbd24ba33f2cd686f7ed5bbdd4b57ab",
+      "size": 2185,
+      "mtimeMs": 1791796263920
+    },
+    "wiki/概念/第一性原理思维.md": {
+      "hash": "7a052c8fc3215900055768188dd7ad7f",
+      "size": 1268,
+      "mtimeMs": 1791796263918
+    },
+    "wiki/概念/螺旋式上升.md": {
+      "hash": "5dc4038761df17657d90150448346820",
+      "size": 1826,
+      "mtimeMs": 1791796263916
+    },
+    "wiki/概念/费曼测试.md": {
+      "hash": "1a8031eb4929cc22bd3389b704919028",
+      "size": 1018,
+      "mtimeMs": 1791796263919
+    },
+    "wiki/概念/阶段性回旋路径.md": {
+      "hash": "37cf75fc57290aa515037c61ad6b8ad0",
+      "size": 2081,
+      "mtimeMs": 1791796313993
+    },
+    "wiki/讲次/README.md": {
+      "hash": "21ee81164b5dd0121ae8a3a97e5ba383",
+      "size": 1061,
+      "mtimeMs": 1791795860422
+    }
+  }
+}
