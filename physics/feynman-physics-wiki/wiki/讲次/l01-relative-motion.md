@@ -3,7 +3,7 @@ id: l01
 route: l01-relative-motion
 title: 坐在行驶的高铁上，树为什么在后退？
 pillar: motion
-stage: 1
+stage: 2
 age_range: 7-8
 loop_depth: 2
 order: 1

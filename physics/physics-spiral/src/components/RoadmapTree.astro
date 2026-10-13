@@ -2,7 +2,7 @@
 interface Lesson {
   data: {
     id: string;
-    route: string;
+    route?: string;
     title: string;
     pillar: 'motion' | 'fields' | 'energy' | 'micro';
     stage: number;
@@ -10,12 +10,13 @@ interface Lesson {
     loop_depth: number;
     order: number;
     summary?: string;
+    initial_state?: 'available' | 'exploring' | 'mastered' | 'locked';
   };
 }
 
-interface Props { lessons: Lesson[]; }
+interface Props { lessons: ReadonlyArray<Lesson>; progressEnabled?: boolean; }
 
-const { lessons } = Astro.props;
+const { lessons, progressEnabled = true } = Astro.props;
 const pillarMeta = {
   motion: { label: '运动与时空', note: '先学会描述世界', color: '#7c5ce5' },
   fields: { label: '相互作用与场', note: '看见看不见的连接', color: '#2d9c72' },
@@ -36,7 +37,7 @@ const pillars = Object.entries(pillarMeta) as Array<[keyof typeof pillarMeta, (t
   </div>
 </div>
 
-<div class="roadmap" data-roadmap>
+<div class="roadmap" data-roadmap data-progress-enabled={progressEnabled}>
   {pillars.map(([key, meta]) => {
     const grouped = lessons.filter((lesson) => lesson.data.pillar === key).sort((a, b) => a.data.order - b.data.order);
     return (
@@ -50,14 +51,14 @@ const pillars = Object.entries(pillarMeta) as Array<[keyof typeof pillarMeta, (t
         </div>
         <div class="node-list">
           {grouped.length ? grouped.map((lesson) => (
-            <a class={`node loop-depth-${lesson.data.loop_depth}`} href={`/lessons/${lesson.data.route}/`} data-lesson-card data-lesson-id={lesson.data.id} data-loop-depth={lesson.data.loop_depth} data-state="available">
+            <a class:list={['node', `loop-depth-${lesson.data.loop_depth}`, !lesson.data.route && 'node-archive']} href={lesson.data.route ? `/lessons/${lesson.data.route}/` : undefined} aria-disabled={lesson.data.route ? undefined : 'true'} data-lesson-card data-lesson-id={lesson.data.id} data-loop-depth={lesson.data.loop_depth} data-state={lesson.data.initial_state ?? 'available'}>
               <span class="node-loop" aria-label={`第 ${lesson.data.loop_depth} 次回旋`} aria-hidden="true">
                 {Array.from({ length: Math.min(lesson.data.loop_depth, 4) }).map(() => <span class="loop-ring"></span>)}
               </span>
               <span class="node-copy">
                 <span class="node-kicker">L{String(lesson.data.order).padStart(2, '0')} · Loop {lesson.data.loop_depth}</span>
                 <span class="node-title">{lesson.data.title}</span>
-                <span class="node-state" data-node-state>可开始</span>
+                <span class="node-state" data-node-state>{lesson.data.initial_state === 'mastered' ? '已完成' : lesson.data.initial_state === 'locked' ? '待解锁' : lesson.data.initial_state === 'exploring' ? '探索中' : '可开始'}</span>
               </span>
             </a>
           )) : (
@@ -85,6 +86,7 @@ const pillars = Object.entries(pillarMeta) as Array<[keyof typeof pillarMeta, (t
   };
 
   const updateNodes = () => {
+    if (document.querySelector('[data-roadmap]')?.getAttribute('data-progress-enabled') !== 'true') return;
     const progress = getProgress();
     document.querySelectorAll('[data-lesson-card]').forEach((node) => {
       const id = node.getAttribute('data-lesson-id');

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import RoadmapTree from '../../components/RoadmapTree.astro';
+import { getCollection } from 'astro:content';
+import { stage1Lessons } from '../../data/stage1-roadmap';
+
+export function getStaticPaths() {
+  return [{ params: { stage: '1' } }, { params: { stage: '2' } }];
+}
+
+const stage = Number(Astro.params.stage);
+const isStageOne = stage === 1;
+const lessons = isStageOne
+  ? stage1Lessons
+  : (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={isStageOne ? 'Stage 1 (6–7 岁) · 观察世界' : 'Stage 2 (7–8 岁) · 实验与追问'} description="小星星物理学阶段路线图">
+  <Header
+    completedCount={isStageOne ? 20 : 0}
+    currentStage={isStageOne ? 1 : 2}
+    ageRange={isStageOne ? '6~7岁' : '7~8岁'}
+    trackProgress={!isStageOne}
+    staticProgress={isStageOne ? '· 20/20 讲已完成' : undefined}
+    showStageSwitcher={false}
+  />
+  <main class="shell">
+    <Hero />
+    <RoadmapTree lessons={lessons} progressEnabled={!isStageOne} />
+  </main>
+</BaseLayout>

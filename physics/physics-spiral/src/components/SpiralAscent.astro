@@ -1,0 +1,280 @@
+---
+const stages = [
+  {
+    id: 1,
+    title: 'Stage 1 (6–7 岁) · 观察世界',
+    status: 'completed',
+    statusText: '已完成 · 20/20 讲',
+    desc: '从日常经验出发，注意到运动、冷热、光影和声音的不同。学会用直觉去指认：树为什么会动？影子为什么会变长？',
+    progress: '20 / 20 讲全通关',
+    pDescs: ['绝对静止错觉', '推拉与接触力', '能量初步感觉', '眼睛能看见的物质'],
+    href: '/stages/1/',
+  },
+  {
+    id: 2,
+    title: 'Stage 2 (7–8 岁) · 实验与追问',
+    status: 'active',
+    statusText: '当前阶段 · 规划 26 讲',
+    desc: '不满足于“看到”，开始动手改变变量。通过简单的客厅实验与追问，把模糊的感觉变成因果关系。',
+    progress: '2 / 26 讲已通关',
+    pDescs: ['参照系与相对运动', '静电与看不见的磁场', '动能转换与守恒概念', '分子运动与热胀冷缩'],
+    href: '/stages/2/',
+  },
+  {
+    id: 3,
+    title: 'Stage 3 (9–10 岁) · 模型构建',
+    status: 'locked',
+    statusText: '未解锁',
+    desc: '从具体的实验现象向抽象过渡。引入符号、受力分析和守恒思想，用统一的模型解释共通规律。',
+    progress: '待解锁',
+    pDescs: ['加速度与受力图像', '重力场与电磁场定量', '机械能守恒闭环', '原子结构与状态变化'],
+  },
+  {
+    id: 4,
+    title: 'Stage 4 (11–12 岁) · 第一性原理',
+    status: 'locked',
+    statusText: '未解锁',
+    desc: '打通支柱之间的边界。不再死记硬背公式，而是追溯到底层的定律（如牛顿定律与场），进行推导和思考。',
+    progress: '待解锁',
+    pDescs: ['相对论与时空弯曲', '麦克斯韦方程本质', '热力学定律与熵', '量子力学初步概念'],
+  },
+];
+
+const pillars = [
+  { id: 'motion', label: '运动与时空', color: '#a78bfa' },
+  { id: 'fields', label: '相互作用与场', color: '#34d399' },
+  { id: 'energy', label: '能量与账本', color: '#fbbf24' },
+  { id: 'micro', label: '物质微观建筑', color: '#38bdf8' },
+];
+---
+
+<div class="ascent-page">
+  <header class="ascent-header">
+    <div class="ascent-brand">
+      <span class="ascent-logo" aria-hidden="true">✦</span>
+      <div>
+        <span class="ascent-brand-title">小星星的物理漫游</span>
+        <span class="ascent-brand-subtitle">PURPLE SPIRAL · ASCENT</span>
+      </div>
+    </div>
+    <div class="ascent-header-right">
+      <nav class="ascent-stage-nav" aria-label="切换 Stage">
+        <a href="/stages/1/">Stage 1</a>
+        <a class="active" href="/stages/2/">Stage 2</a>
+      </nav>
+      <div class="ascent-status"><span></span><strong data-ascent-progress>Stage 2 (7–8岁) · 已掌握 0 / 26 讲</strong></div>
+    </div>
+  </header>
+
+  <main class="ascent-main">
+    <section class="ascent-canvas-section" aria-label="紫色三维螺旋图">
+      <div class="ascent-glow ascent-glow-one" aria-hidden="true"></div>
+      <div class="ascent-glow ascent-glow-two" aria-hidden="true"></div>
+      <div class="ascent-canvas-wrapper">
+        <canvas id="spiral-canvas" aria-label="可拖拽旋转的紫色螺旋图"></canvas>
+      </div>
+    </section>
+
+    <aside class="ascent-inspector" aria-label="阶段与主线详情">
+      <div class="ascent-stage-cards">
+        {stages.map((stage) => (
+          stage.href ? (
+            <a class:list={['ascent-stage-card', stage.status === 'active' && 'active']} href={stage.href} data-stage-select={stage.id}>
+              <span class:list={['ascent-stage-icon', stage.status]}>{stage.status === 'completed' ? '✓' : stage.status === 'active' ? '•' : '🔒'}</span>
+              <span><strong>{stage.title}</strong><small>{stage.statusText}</small></span><b>›</b>
+            </a>
+          ) : (
+            <div class="ascent-stage-card locked" data-stage-select={stage.id} aria-disabled="true">
+              <span class="ascent-stage-icon locked">🔒</span><span><strong>{stage.title}</strong><small>{stage.statusText}</small></span><b>›</b>
+            </div>
+          )
+        ))}
+      </div>
+
+      <div class="ascent-detail-card">
+        <div class="ascent-detail-top"><span id="detail-stage-tag">STAGE 2</span><small id="detail-status-badge">当前探索中</small></div>
+        <h2 id="detail-title">Stage 2 (7–8 岁) · 实验与追问</h2>
+        <p id="detail-desc">当前阶段规划 26 讲，核心目标是直觉量化、动手验证和追问机制。</p>
+        <div class="ascent-pillar-grid">
+          {pillars.map((pillar, index) => <div class={`ascent-pillar-card pillar-${pillar.id}`}><i></i><span>{pillar.label}<small id={`p${index + 1}-desc`}>{stages[1].pDescs[index]}</small></span></div>)}
+        </div>
+        <div class="ascent-detail-bottom"><span>目标核心：第一性原理思考</span><span id="detail-progress">2 / 26 讲已解锁</span></div>
+        <a id="ascent-stage-link" class="ascent-detail-link" href="/stages/2/">进入 Stage 2 roadmap ↗</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="ascent-footer">PHYSICS SPIRAL ASCENT DIAGRAM · PURPLE SPIRAL MODEL</footer>
+</div>
+
+<script is:inline>
+  // @ts-nocheck
+  const stages = {
+    1: { status: 'completed', tag: 'STAGE 1', statusText: '已完成 · 20/20 讲', title: 'Stage 1 (6–7 岁) · 观察世界', desc: '从日常经验出发，注意到运动、冷热、光影和声音的不同。学会用直觉去指认：树为什么会动？影子为什么会变长？', progress: '20 / 20 讲全通关', pDescs: ['绝对静止错觉', '推拉与接触力', '能量初步感觉', '眼睛能看见的物质'], href: '/stages/1/' },
+    2: { status: 'active', tag: 'STAGE 2', statusText: '当前阶段 · 规划 26 讲', title: 'Stage 2 (7–8 岁) · 实验与追问', desc: '不满足于“看到”，开始动手改变变量。通过简单的客厅实验与追问，把模糊的感觉变成因果关系。', progress: '2 / 26 讲已通关', pDescs: ['参照系与相对运动', '静电与看不见的磁场', '动能转换与守恒概念', '分子运动与热胀冷缩'], href: '/stages/2/' },
+    3: { status: 'locked', tag: 'STAGE 3', statusText: '未解锁', title: 'Stage 3 (9–10 岁) · 模型构建', desc: '从具体的实验现象向抽象过渡。引入符号、受力分析和守恒思想，用统一的模型解释共通规律。', progress: '待解锁', pDescs: ['加速度与受力图像', '重力场与电磁场定量', '机械能守恒闭环', '原子结构与状态变化'] },
+    4: { status: 'locked', tag: 'STAGE 4', statusText: '未解锁', title: 'Stage 4 (11–12 岁) · 第一性原理', desc: '打通支柱之间的边界。不再死记硬背公式，而是追溯到底层的定律（如牛顿定律与场），进行推导和思考。', progress: '待解锁', pDescs: ['相对论与时空弯曲', '麦克斯韦方程本质', '热力学定律与熵', '量子力学初步概念'] },
+  };
+  let selectedStage = 2;
+
+  const canvas = document.getElementById('spiral-canvas');
+  const ctx = canvas.getContext('2d');
+  const wrapper = document.querySelector('.ascent-canvas-wrapper');
+  let rotY = 0.6;
+  let rotX = 0.35;
+  let dragging = false;
+  let lastX = 0;
+  let lastY = 0;
+  let movedDuringPointer = false;
+  let suppressClick = false;
+  const stagePositions = [.15, .42, .68, .92];
+
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = rect.width * ratio;
+    canvas.height = rect.height * ratio;
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+
+  function project(x, y, z, width, height) {
+    const cosY = Math.cos(rotY);
+    const sinY = Math.sin(rotY);
+    const x1 = x * cosY - z * sinY;
+    const z1 = x * sinY + z * cosY;
+    const cosX = Math.cos(rotX);
+    const sinX = Math.sin(rotX);
+    const y2 = y * cosX - z1 * sinX;
+    const z2 = y * sinX + z1 * cosX;
+    const scale = 420 / (460 + z2);
+    return { x: width / 2 + x1 * scale, y: height / 2 + y2 * scale + 25, scale, z: z2 };
+  }
+
+  function spiralPoint(t, strand) {
+    const angle = t * 4.2 * Math.PI * 2 + strand * Math.PI / 2;
+    const radius = 58 + t * 118;
+    return { x: Math.cos(angle) * radius, y: 220 - t * 440, z: Math.sin(angle) * radius };
+  }
+
+  function selectStage(id) {
+    selectedStage = id;
+    const stage = stages[id];
+    document.getElementById('detail-stage-tag').textContent = stage.tag;
+    document.getElementById('detail-status-badge').textContent = stage.statusText;
+    document.getElementById('detail-title').textContent = stage.title;
+    document.getElementById('detail-desc').textContent = stage.desc;
+    document.getElementById('detail-progress').textContent = stage.progress;
+    stage.pDescs.forEach((desc, index) => { document.getElementById(`p${index + 1}-desc`).textContent = desc; });
+    const link = document.getElementById('ascent-stage-link');
+    if (stage.href) { link.href = stage.href; link.textContent = `进入 ${stage.tag.replace('STAGE', 'Stage')} roadmap ↗`; link.removeAttribute('aria-disabled'); }
+    else { link.removeAttribute('href'); link.textContent = '该阶段尚未解锁'; link.setAttribute('aria-disabled', 'true'); }
+  }
+
+  function stageAtPoint(clientX, clientY) {
+    const rect = canvas.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+    let hit = null;
+    stagePositions.forEach((t, index) => {
+      const point = project(...Object.values(spiralPoint(t, 0)), rect.width, rect.height);
+      const distance = Math.hypot(x - point.x, y - point.y);
+      if (distance < Math.max(48, 28 * point.scale)) hit = index + 1;
+    });
+    return hit;
+  }
+
+  document.querySelectorAll('[data-stage-select]').forEach((card) => {
+    card.addEventListener('click', (event) => {
+      const id = Number(card.getAttribute('data-stage-select'));
+      if (stages[id].status === 'locked') { event.preventDefault(); return; }
+      selectStage(id);
+    });
+  });
+
+  wrapper.addEventListener('pointerdown', (event) => {
+    dragging = true;
+    movedDuringPointer = false;
+    lastX = event.clientX;
+    lastY = event.clientY;
+    wrapper.setPointerCapture(event.pointerId);
+  });
+  wrapper.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    const deltaX = event.clientX - lastX;
+    const deltaY = event.clientY - lastY;
+    if (Math.abs(deltaX) + Math.abs(deltaY) > 3) movedDuringPointer = true;
+    rotY += deltaX * .008;
+    rotX = Math.max(-.2, Math.min(1.2, rotX + deltaY * .005));
+    lastX = event.clientX;
+    lastY = event.clientY;
+  });
+  wrapper.addEventListener('pointerup', (event) => {
+    dragging = false;
+    if (!movedDuringPointer) {
+      const hit = stageAtPoint(event.clientX, event.clientY);
+      if (hit) selectStage(hit);
+    }
+    suppressClick = movedDuringPointer;
+    window.setTimeout(() => { suppressClick = false; }, 0);
+  });
+  wrapper.addEventListener('pointerleave', () => { if (!dragging) return; dragging = false; });
+  wrapper.addEventListener('click', (event) => {
+    if (suppressClick) return;
+    const hit = stageAtPoint(event.clientX, event.clientY);
+    if (hit) selectStage(hit);
+  });
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const particles = Array.from({ length: 28 }, () => ({ t: Math.random(), speed: .0006 + Math.random() * .0012, size: .8 + Math.random() * 1.3, alpha: .18 + Math.random() * .32 }));
+  function animate() {
+    if (!dragging) rotY += .002;
+    const rect = canvas.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    ctx.clearRect(0, 0, width, height);
+    ctx.beginPath();
+    for (let i = 0; i <= 260; i += 1) {
+      const point = project(...Object.values(spiralPoint(i / 260, 0)), width, height);
+      if (i === 0) ctx.moveTo(point.x, point.y); else ctx.lineTo(point.x, point.y);
+    }
+    ctx.strokeStyle = 'rgba(167,139,250,.86)';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.shadowColor = '#8b5cf6';
+    ctx.shadowBlur = 9;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    particles.forEach((particle) => {
+      particle.t += particle.speed;
+      if (particle.t > 1) particle.t = 0;
+      const point = project(...Object.values(spiralPoint(particle.t, 0)), width, height);
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, particle.size * point.scale, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(196,181,253,${particle.alpha * point.scale})`;
+      ctx.shadowColor = '#a78bfa';
+      ctx.shadowBlur = 4;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+    [1, 2, 3, 4].forEach((id, index) => {
+      const point = project(...Object.values(spiralPoint(stagePositions[index], 0)), width, height);
+      const selected = id === selectedStage;
+      const color = stages[id].status === 'completed' ? '#10b981' : stages[id].status === 'active' ? '#8b5cf6' : '#334155';
+      const radius = (selected ? 16 : 11) * point.scale;
+      if (selected || stages[id].status === 'active') { ctx.beginPath(); ctx.arc(point.x, point.y, radius * 2.4, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139,92,246,.12)'; ctx.fill(); }
+      ctx.beginPath(); ctx.arc(point.x, point.y, radius, 0, Math.PI * 2); ctx.fillStyle = color; ctx.shadowColor = '#a78bfa'; ctx.shadowBlur = selected ? 22 : 12; ctx.fill(); ctx.shadowBlur = 0;
+      ctx.beginPath(); ctx.arc(point.x, point.y, radius * .38, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
+      ctx.font = `${Math.round(12 * point.scale)}px Inter, sans-serif`; ctx.fillStyle = selected ? '#fff' : 'rgba(203,213,225,.85)'; ctx.textAlign = 'center'; ctx.fillText(`Stage ${id}`, point.x, point.y + radius + 18 * point.scale);
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  try {
+    const saved = JSON.parse(localStorage.getItem('physics-spiral:progress:v1') || '{}');
+    const count = Array.isArray(saved?.profiles?.default?.mastered) ? saved.profiles.default.mastered.length : 0;
+    document.querySelector('[data-ascent-progress]').textContent = `Stage 2 (7–8岁) · 已掌握 ${count} / 26 讲`;
+  } catch {}
+</script>

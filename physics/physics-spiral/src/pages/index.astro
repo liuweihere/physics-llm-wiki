@@ -1,18 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import RoadmapTree from '../components/RoadmapTree.astro';
-
-const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+import SpiralAscent from '../components/SpiralAscent.astro';
 ---
 
-<BaseLayout title="物理宇宙进化树" description="小星星的第一性原理物理学习路线">
-  <Header completedCount={0} />
-  <main class="shell">
-    <Hero />
-    <RoadmapTree lessons={lessons} />
-    <footer class="footer">小星星物理学螺旋体系 · 内容由 Wiki 整理后公开发布</footer>
-  </main>
+<BaseLayout title="小星星的物理漫游" description="四根主线交织的物理学螺旋路线图">
+  <SpiralAscent />
 </BaseLayout>

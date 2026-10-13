@@ -34,7 +34,7 @@ const sandboxResources = [
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.summary}>
-  <Header completedCount={0} />
+  <Header completedCount={0} currentStage={entry.data.stage} ageRange={entry.data.age_range.replace('-', '~') + '岁'} />
   <main class="shell">
     <section class="lesson-hero">
       <nav class="breadcrumbs" aria-label="面包屑导航">

@@ -1,9 +1,18 @@
 ---
 interface Props {
   completedCount: number;
+  currentStage?: number;
+  ageRange?: string;
+  trackProgress?: boolean;
+  staticProgress?: string;
+  showStageSwitcher?: boolean;
 }
 
-const { completedCount } = Astro.props;
+const { completedCount, currentStage = 2, ageRange = '7~8岁', trackProgress = true, staticProgress, showStageSwitcher = true } = Astro.props;
+const stageOptions = [
+  { stage: 1, label: '6~7岁启蒙', href: '/stages/1/' },
+  { stage: 2, label: '7~8岁探索', href: '/stages/2/' },
+];
 ---
 
 <header class="site-header shell">
@@ -12,8 +21,13 @@ const { completedCount } = Astro.props;
       <span class="brand-mark" aria-hidden="true">🌟</span>
       <span>小星星的物理漫游</span>
     </a>
-    <div class="progress-copy" data-progress-summary>
-      <strong>Stage 1 (7~8岁) <span data-progress-text>· 已掌握 {completedCount} 讲</span></strong>
+    <div class="header-right">
+      {showStageSwitcher && <nav class="stage-switcher" aria-label="切换学习阶段">
+        {stageOptions.map((option) => <a class:list={{ active: option.stage === currentStage }} href={option.href} aria-current={option.stage === currentStage ? 'page' : undefined}>Stage {option.stage}<span>{option.label}</span></a>)}
+      </nav>}
+      <div class="progress-copy" data-progress-summary data-track-progress={trackProgress}>
+        <strong>Stage {currentStage} ({ageRange}) <span data-progress-text>{staticProgress ?? `· 已掌握 ${completedCount} 讲`}</span></strong>
+      </div>
     </div>
   </div>
 </header>
@@ -30,6 +44,8 @@ const { completedCount } = Astro.props;
   };
 
   const update = () => {
+    const summary = document.querySelector('[data-progress-summary][data-track-progress="true"]');
+    if (!summary) return;
     const text = document.querySelector('[data-progress-text]');
     if (!text) return;
     text.textContent = `· 已掌握 ${readProgress().length} 讲`;
