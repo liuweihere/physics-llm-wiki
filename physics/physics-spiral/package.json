@@ -2,5 +2,23 @@
   "name": "physics-spiral",
   "private": true,
   "version": "0.1.0",
-  "description": "小星星物理学螺旋体系展示站"
+  "description": "小星星物理学螺旋体系展示站",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run content:validate && astro check && astro build",
+    "preview": "astro preview",
+    "content:sync": "node scripts/sync-content.mjs",
+    "content:validate": "node scripts/validate-content.mjs"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.0.0",
+    "tailwindcss": "^3.4.17",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.3"
+  }
 }

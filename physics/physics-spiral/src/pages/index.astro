@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import RoadmapTree from '../components/RoadmapTree.astro';
+
+const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+const curriculumTotal = 26;
+---
+
+<BaseLayout title="物理宇宙进化树" description="小星星的第一性原理物理学习路线">
+  <Header completedCount={0} publishedCount={lessons.length} curriculumTotal={curriculumTotal} />
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">A first-principles physics journey</div>
+      <h1>把每一个“为什么”，变成一颗会发光的星。</h1>
+      <p>从高铁窗外后退的树，到电荷之间看不见的相互作用。沿着四根主线，一次又一次回到熟悉的问题，慢慢搭出自己的物理宇宙。</p>
+      <div class="hero-meta">
+        <span class="pill">✦ Stage 1 · 7–8 岁</span>
+        <span class="pill">◌ 本设备学习进度</span>
+        <span class="pill">↗ 无广告 · 适合平板阅读</span>
+      </div>
+    </section>
+    <RoadmapTree lessons={lessons} />
+    <footer class="footer">小星星物理学螺旋体系 · 内容由 Wiki 整理后公开发布</footer>
+  </main>
+</BaseLayout>

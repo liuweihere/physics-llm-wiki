@@ -1,0 +1,110 @@
+---
+interface Lesson {
+  data: {
+    id: string;
+    route: string;
+    title: string;
+    pillar: 'motion' | 'fields' | 'energy' | 'micro';
+    stage: number;
+    age_range: string;
+    loop_depth: number;
+    order: number;
+    summary?: string;
+  };
+}
+
+interface Props { lessons: Lesson[]; }
+
+const { lessons } = Astro.props;
+const pillarMeta = {
+  motion: { label: '运动与时空', note: '先学会描述世界', color: '#4f6ee8' },
+  fields: { label: '相互作用与场', note: '看见看不见的连接', color: '#2d9c72' },
+  energy: { label: '能量与账本', note: '追踪变化与守恒', color: '#e29a3b' },
+  micro: { label: '物质微观建筑', note: '走进微小世界', color: '#9275d6' },
+} as const;
+const pillars = Object.entries(pillarMeta) as Array<[keyof typeof pillarMeta, (typeof pillarMeta)[keyof typeof pillarMeta]]>;
+---
+
+<div class="roadmap-toolbar">
+  <div>
+    <div class="eyebrow">The Spiral Roadmap</div>
+    <h2 class="section-title">从生活问题，走进物理世界</h2>
+  </div>
+  <div class="filters" aria-label="按主线筛选">
+    <button class="filter" type="button" data-filter="all" aria-pressed="true">全部</button>
+    {pillars.map(([key, meta]) => <button class="filter" type="button" data-filter={key} aria-pressed="false">{meta.label}</button>)}
+  </div>
+</div>
+
+<div class="roadmap" data-roadmap>
+  {pillars.map(([key, meta]) => {
+    const grouped = lessons.filter((lesson) => lesson.data.pillar === key).sort((a, b) => a.data.order - b.data.order);
+    return (
+      <section class="pillar" data-pillar={key} style={`--pillar-color: ${meta.color}`}>
+        <div class="pillar-heading">
+          <span class="pillar-dot" aria-hidden="true"></span>
+          <div>
+            <h2>{meta.label}</h2>
+            <p>{meta.note}</p>
+          </div>
+        </div>
+        <div class="node-list">
+          {grouped.length ? grouped.map((lesson) => (
+            <a class={`node loop-depth-${lesson.data.loop_depth}`} href={`/lessons/${lesson.data.route}/`} data-lesson-card data-lesson-id={lesson.data.id} data-loop-depth={lesson.data.loop_depth} data-state="available">
+              <span class="node-loop" aria-label={`第 ${lesson.data.loop_depth} 次回旋`} aria-hidden="true">
+                {Array.from({ length: Math.min(lesson.data.loop_depth, 4) }).map(() => <span class="loop-ring"></span>)}
+              </span>
+              <span class="node-copy">
+                <span class="node-kicker">L{String(lesson.data.order).padStart(2, '0')} · Loop {lesson.data.loop_depth}</span>
+                <span class="node-title">{lesson.data.title}</span>
+                <span class="node-state" data-node-state>可开始</span>
+              </span>
+            </a>
+          )) : (
+            <div class="empty-pillar" role="status">
+              <span class="empty-orbit" aria-hidden="true">✦</span>
+              <strong>神秘星系正在成形</strong>
+              <span>更多回旋内容即将解锁</span>
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  })}
+</div>
+
+<script>
+  const progressKey = 'physics-spiral:progress:v1';
+  const getProgress = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(progressKey) ?? '{}');
+      return value?.profiles?.default ?? { exploring: [], mastered: [] };
+    } catch {
+      return { exploring: [], mastered: [] };
+    }
+  };
+
+  const updateNodes = () => {
+    const progress = getProgress();
+    document.querySelectorAll('[data-lesson-card]').forEach((node) => {
+      const id = node.getAttribute('data-lesson-id');
+      const state = progress.mastered?.includes(id) ? 'mastered' : progress.exploring?.includes(id) ? 'exploring' : 'available';
+      node.setAttribute('data-state', state);
+      const label = node.querySelector('[data-node-state]');
+      if (label) label.textContent = state === 'mastered' ? '已掌握' : state === 'exploring' ? '探索中' : '可开始';
+    });
+  };
+
+  document.querySelectorAll('[data-filter]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      document.querySelectorAll('[data-filter]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      document.querySelectorAll('[data-pillar]').forEach((pillar) => {
+        pillar.toggleAttribute('hidden', filter !== 'all' && pillar.getAttribute('data-pillar') !== filter);
+      });
+    });
+  });
+
+  window.addEventListener('physics-progress-changed', updateNodes);
+  updateNodes();
+</script>

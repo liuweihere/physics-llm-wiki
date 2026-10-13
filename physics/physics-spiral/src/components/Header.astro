@@ -1,0 +1,46 @@
+---
+interface Props {
+  completedCount: number;
+  publishedCount: number;
+  curriculumTotal: number;
+}
+
+const { completedCount, publishedCount, curriculumTotal } = Astro.props;
+---
+
+<header class="site-header shell">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="返回物理螺旋首页">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>Physics Spiral</span>
+    </a>
+    <div class="progress-copy" data-progress-summary>
+      <strong>Stage 1 · 7–8 岁</strong>
+      <span data-progress-text>已掌握 {completedCount} 讲 · 已公开 {publishedCount}/{curriculumTotal} 讲</span>
+    </div>
+  </div>
+</header>
+
+<script>
+  const key = 'physics-spiral:progress:v1';
+  const readProgress = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(key) ?? '{}');
+      return Array.isArray(value?.profiles?.default?.mastered) ? value.profiles.default.mastered : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const update = () => {
+    const text = document.querySelector('[data-progress-text]');
+    if (!text) return;
+    const current = text.textContent ?? '';
+    const publishedMatch = current.match(/已公开\s+(\d+\/\d+)\s+讲/);
+    const published = publishedMatch?.[1] ?? '0/0';
+    text.textContent = `已掌握 ${readProgress().length} 讲 · 已公开 ${published} 讲`;
+  };
+
+  window.addEventListener('physics-progress-changed', update);
+  update();
+</script>
