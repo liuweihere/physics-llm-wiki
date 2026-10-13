@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(new URL('.', import.meta.url).pathname, '..');
 const lessonsDir = path.join(root, 'src', 'content', 'lessons');
-const required = ['id', 'route', 'title', 'pillar', 'stage', 'age_range', 'loop_depth', 'order'];
+const required = ['id', 'route', 'title', 'pillar', 'stage', 'age_range', 'loop_depth', 'order', 'published'];
 const allowedPillars = new Set(['motion', 'fields', 'energy', 'micro']);
 const files = fs.existsSync(lessonsDir) ? fs.readdirSync(lessonsDir).filter((file) => file.endsWith('.md')) : [];
 const errors = [];

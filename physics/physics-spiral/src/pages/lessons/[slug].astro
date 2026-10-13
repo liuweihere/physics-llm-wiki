@@ -1,56 +1,19 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import LessonProgress from '../../components/LessonProgress.astro';
+import LessonLayout from '../../layouts/LessonLayout.astro';
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
-  return lessons.map((entry) => ({
-    params: { slug: entry.data.route },
-    props: { entry },
-  }));
+  return lessons.flatMap((entry) => {
+    const routes = [...new Set([entry.data.route, entry.data.id])];
+    return routes.map((slug) => ({ params: { slug }, props: { entry } }));
+  });
 }
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const lessons = await getCollection('lessons');
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.summary}>
-  <Header completedCount={0} publishedCount={lessons.length} curriculumTotal={26} />
-  <main class="shell">
-    <section class="lesson-hero">
-      <nav class="breadcrumbs" aria-label="面包屑导航">
-        <a href="/">首页</a><span aria-hidden="true">›</span>
-        <span>Stage {entry.data.stage}</span><span aria-hidden="true">›</span>
-        <span>{entry.data.title}</span>
-      </nav>
-      <div class="eyebrow">L{String(entry.data.order).padStart(2, '0')} · Loop {entry.data.loop_depth}</div>
-      <h1>{entry.data.title}</h1>
-      {entry.data.summary && <p>{entry.data.summary}</p>}
-      <div class="lesson-meta">
-        <span class="pill">{entry.data.age_range} 岁</span>
-        <span class="pill">{entry.data.pillar}</span>
-        <span class="pill">第 {entry.data.order} 讲</span>
-      </div>
-    </section>
-    <div class="lesson-layout">
-      <article class="lesson-content"><Content /></article>
-      <aside class="lesson-sidebar">
-        <LessonProgress lessonId={entry.data.id} />
-        <div class="side-card">
-          <h2>实验与参考</h2>
-          <p>从站外工具开始观察，再回到生活里的问题。</p>
-          <div class="resource-list">
-            {entry.data.resources.length ? entry.data.resources.map((resource) => (
-              <a class="resource" href={resource.url} target="_blank" rel="noreferrer noopener">
-                <span>{resource.title}</span><b aria-hidden="true">↗</b>
-              </a>
-            )) : <span class="node-state">资源准备中</span>}
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
-</BaseLayout>
+<LessonLayout entry={entry}>
+  <Content />
+</LessonLayout>

@@ -12,6 +12,9 @@ if (!files.length) {
 }
 
 fs.mkdirSync(targetDir, { recursive: true });
+for (const existing of fs.readdirSync(targetDir).filter((file) => file.endsWith('.md'))) {
+  fs.unlinkSync(path.join(targetDir, existing));
+}
 let exported = 0;
 
 for (const file of files) {
@@ -22,8 +25,7 @@ for (const file of files) {
     console.error(`Refusing to export possible private content: ${file}`);
     process.exit(1);
   }
-  const exportedSource = source.replace(/^published:\s*true\s*\n/m, '');
-  fs.writeFileSync(path.join(targetDir, file), exportedSource);
+  fs.writeFileSync(path.join(targetDir, file), source);
   exported += 1;
 }
 
