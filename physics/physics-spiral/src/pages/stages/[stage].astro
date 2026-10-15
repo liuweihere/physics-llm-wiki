@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
 import RoadmapTree from '../../components/RoadmapTree.astro';
+import StageRoadmapHeader from '../../components/StageRoadmapHeader.astro';
 import { getCollection } from 'astro:content';
 import { stage1Lessons } from '../../data/stage1-roadmap';
 
@@ -18,16 +18,11 @@ const lessons = isStageOne
 ---
 
 <BaseLayout title={isStageOne ? 'Stage 1 (6–7 岁) · 观察世界' : 'Stage 2 (7–8 岁) · 实验与追问'} description="小星星物理学阶段路线图">
-  <Header
-    completedCount={isStageOne ? 20 : 0}
-    currentStage={isStageOne ? 1 : 2}
-    ageRange={isStageOne ? '6~7岁' : '7~8岁'}
-    trackProgress={!isStageOne}
-    staticProgress={isStageOne ? '· 20/20 讲已完成' : undefined}
-    showStageSwitcher={false}
-  />
-  <main class="shell">
+  <div class="stage-roadmap-page">
+    <StageRoadmapHeader stage={isStageOne ? 1 : 2} ageRange={isStageOne ? '6–7岁' : '7–8岁'} status={isStageOne ? '20/20 讲已完成' : '实验与追问'} />
+    <main class="shell">
     <Hero />
     <RoadmapTree lessons={lessons} progressEnabled={!isStageOne} />
-  </main>
+    </main>
+  </div>
 </BaseLayout>

@@ -1,11 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 
 const resourceSchema = z.object({
-  type: z.enum(['simulator', 'video', 'reading', 'audio']),
+  slot: z.enum(['visual-primer', 'sandbox', 'reading', 'hook']),
+  kind: z.enum(['simulator', 'video', 'book', 'audio']),
   title: z.string(),
-  url: z.string().url(),
+  url: z.string().url().optional(),
   provider: z.string().optional(),
   language: z.string().optional(),
+  duration: z.string().optional(),
 });
 
 const lessons = defineCollection({
@@ -21,9 +23,8 @@ const lessons = defineCollection({
     order: z.number().int().min(1),
     published: z.boolean(),
     summary: z.string().max(160).optional(),
-    audio_duration: z.string().optional(),
-    phet_link: z.string().url().optional(),
-    physicshub_link: z.string().url().optional(),
+    core_question: z.string().optional(),
+    wiki_source: z.string().url().optional(),
     prerequisites: z.array(z.string()).default([]),
     next_lesson_id: z.string().optional(),
     resources: z.array(resourceSchema).default([]),

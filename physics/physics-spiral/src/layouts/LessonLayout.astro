@@ -1,7 +1,16 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Header from '../components/Header.astro';
 import LessonProgress from '../components/LessonProgress.astro';
+
+interface Resource {
+  slot: 'visual-primer' | 'sandbox' | 'reading' | 'hook';
+  kind: 'simulator' | 'video' | 'book' | 'audio';
+  title: string;
+  url?: string;
+  provider?: string;
+  language?: string;
+  duration?: string;
+}
 
 interface Props {
   entry: {
@@ -9,88 +18,92 @@ interface Props {
       id: string;
       title: string;
       summary?: string;
+      core_question?: string;
+      wiki_source?: string;
       stage: number;
       age_range: string;
       pillar: string;
       loop_depth: number;
       order: number;
-      audio_duration?: string;
-      phet_link?: string;
-      physicshub_link?: string;
-      resources: Array<{ type: string; title: string; url: string; provider?: string; language?: string }>;
+      resources: Resource[];
     };
   };
 }
 
 const { entry } = Astro.props;
-const videoResources = entry.data.resources.filter((resource) => resource.type === 'video');
-const sandboxResources = [
-  ...(entry.data.phet_link ? [{ title: 'PhET 互动实验室', url: entry.data.phet_link }] : []),
-  ...(entry.data.physicshub_link ? [{ title: 'PhysicsHub 互动实验室', url: entry.data.physicshub_link }] : []),
-  ...entry.data.resources
-    .filter((resource) => resource.type === 'simulator')
-    .map((resource) => ({ title: resource.title, url: resource.url })),
-];
+const pillarLabels: Record<string, string> = {
+  motion: '运动与时空',
+  fields: '相互作用与场',
+  energy: '能量与账本',
+  micro: '物质微观建筑',
+};
+const slotLabels = {
+  'visual-primer': '视觉启蒙与精选视频',
+  sandbox: '去实验场玩一玩',
+  reading: '读一读',
+  hook: '场景化导语',
+};
+const resourceIcon = {
+  video: '▶',
+  simulator: '⌁',
+  book: '▤',
+  audio: '◉',
+};
+const groupedResources = Object.entries(slotLabels)
+  .map(([slot, label]) => ({ slot, label, resources: entry.data.resources.filter((resource) => resource.slot === slot) }))
+  .filter((group) => group.resources.length > 0);
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.summary}>
-  <Header completedCount={0} currentStage={entry.data.stage} ageRange={entry.data.age_range.replace('-', '~') + '岁'} />
-  <main class="shell">
-    <section class="lesson-hero">
-      <nav class="breadcrumbs" aria-label="面包屑导航">
-        <a href="/">首页</a><span aria-hidden="true">›</span>
-        <span>Stage {entry.data.stage}</span><span aria-hidden="true">›</span>
-        <span>{entry.data.title}</span>
-      </nav>
-      <div class="eyebrow">L{String(entry.data.order).padStart(2, '0')} · Loop {entry.data.loop_depth}</div>
-      <h1>{entry.data.title}</h1>
-      {entry.data.summary && <p>{entry.data.summary}</p>}
-      <div class="lesson-meta">
-        <span class="pill">{entry.data.age_range} 岁</span>
-        <span class="pill">{entry.data.pillar}</span>
-        <span class="pill">第 {entry.data.order} 讲</span>
+  <div class="lesson-detail-page">
+    <header class="lesson-detail-header">
+      <div class="lesson-detail-header-inner">
+        <a class="lesson-back" href={`/stages/${entry.data.stage}/`} aria-label="返回阶段路线图">←</a>
+        <div class="lesson-breadcrumb">
+          <span>Stage {entry.data.stage} ({entry.data.age_range.replace('-', '–')}岁) · {entry.data.order}/26 讲</span>
+          <span>/</span>
+          <strong>{pillarLabels[entry.data.pillar] ?? entry.data.pillar}</strong>
+        </div>
+        <LessonProgress lessonId={entry.data.id} compact />
       </div>
-    </section>
-    <div class="lesson-layout">
-      <article class="lesson-content prose prose-slate max-w-none">
-        <slot />
+    </header>
+
+    <main class="lesson-detail-main">
+      <section class="lesson-detail-title">
+        <div class="lesson-detail-kicker">Loop {entry.data.loop_depth} · {pillarLabels[entry.data.pillar] ?? entry.data.pillar}</div>
+        <h1>{entry.data.title}</h1>
+        {entry.data.summary && <p>{entry.data.summary}</p>}
+        {entry.data.core_question && <p class="lesson-core-question">核心问题：{entry.data.core_question}</p>}
+        {entry.data.wiki_source && <a class="lesson-wiki-source" href={entry.data.wiki_source} target="_blank" rel="noreferrer noopener">Wiki source ↗</a>}
+      </section>
+
+      {groupedResources.length > 0 && <section class="lesson-resource-index" aria-label="本讲资源">
+        {groupedResources.map((group) => (
+          <div class="lesson-resource-group">
+            <h2>{group.label}</h2>
+            <div class="lesson-resource-grid">
+              {group.resources.map((resource) => {
+                const card = (
+                  <span class="lesson-resource-card-inner">
+                    <span class="lesson-resource-icon" aria-hidden="true">{resourceIcon[resource.kind]}</span>
+                    <span class="lesson-resource-copy">
+                      <strong>{resource.title}</strong>
+                      <small>{resource.provider ?? (resource.kind === 'simulator' ? 'Interactive simulator' : resource.kind === 'video' ? 'External video' : 'Reading material')}{resource.duration ? ` · ${resource.duration}` : ''}</small>
+                    </span>
+                    {resource.url && <b aria-hidden="true">↗</b>}
+                  </span>
+                );
+                return resource.url ? <a class="lesson-resource-card" href={resource.url} target="_blank" rel="noreferrer noopener">{card}</a> : <div class="lesson-resource-card">{card}</div>;
+              })}
+            </div>
+          </div>
+        ))}
+      </section>}
+
+      <article class="lesson-flow">
+        <div class="lesson-flow-line" aria-hidden="true"></div>
+        <div class="lesson-flow-content"><slot /></div>
       </article>
-      <aside class="lesson-sidebar">
-        <LessonProgress lessonId={entry.data.id} />
-        <div class="side-card audio-card">
-          <div class="sidebar-card-icon" aria-hidden="true">🎙️</div>
-          <div class="sandbox-label">Feynman Hook</div>
-          <h2>场景化音频导语</h2>
-          <p>{entry.data.audio_duration ? `约 ${entry.data.audio_duration}，适合亲子共读或接入 TTS 播放。` : '本讲的场景化导语已写入正文。'}</p>
-          <span class="side-card-note">脚本位于正文第 1 节</span>
-        </div>
-        <div class="side-card video-card">
-          <div class="sidebar-card-icon" aria-hidden="true">📺</div>
-          <div class="sandbox-label">Visual Primer</div>
-          <h2>视觉启蒙与精选视频</h2>
-          <p>先用画面建立直觉，再回到实验和概念。</p>
-          <div class="resource-list">
-            {videoResources.length ? videoResources.map((resource) => (
-              <a class="resource" href={resource.url} target="_blank" rel="noreferrer noopener">
-                <span>{resource.title}</span><b aria-hidden="true">↗</b>
-              </a>
-            )) : <span class="side-card-note">视频推荐已写入正文第 3 节</span>}
-          </div>
-        </div>
-        <div class="side-card sandbox-card">
-          <div class="sidebar-card-icon" aria-hidden="true">🛜</div>
-          <div class="sandbox-label">Digital Sandbox</div>
-          <h2>去实验场玩一玩</h2>
-          <p>先动手改变参数，再回到生活里的问题。</p>
-          <div class="resource-list">
-            {sandboxResources.length ? sandboxResources.map((resource) => (
-              <a class="resource" href={resource.url} target="_blank" rel="noreferrer noopener">
-                <span>{resource.title}</span><b aria-hidden="true">↗</b>
-              </a>
-            )) : <span class="node-state">资源准备中</span>}
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
+    </main>
+  </div>
 </BaseLayout>

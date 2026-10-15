@@ -9,7 +9,8 @@
     "build": "npm run content:validate && astro check && astro build",
     "preview": "astro preview",
     "content:sync": "node scripts/sync-content.mjs",
-    "content:validate": "node scripts/validate-content.mjs"
+    "content:validate": "node scripts/validate-content.mjs",
+    "lesson:validate": "node scripts/validate-lesson.mjs"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",

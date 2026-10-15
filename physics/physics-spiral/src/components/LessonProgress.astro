@@ -1,9 +1,9 @@
 ---
-interface Props { lessonId: string; }
-const { lessonId } = Astro.props;
+interface Props { lessonId: string; compact?: boolean; }
+const { lessonId, compact = false } = Astro.props;
 ---
 
-<div class="side-card" data-lesson-progress data-lesson-id={lessonId}>
+<div class:list={['side-card', compact && 'progress-compact']} data-lesson-progress data-lesson-id={lessonId}>
   <h2>小星星的学习状态</h2>
   <p>进度只保存在这台设备上，不会上传到服务器。</p>
   <div class="progress-actions">

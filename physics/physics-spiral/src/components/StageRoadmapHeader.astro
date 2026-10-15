@@ -1,0 +1,26 @@
+---
+interface Props {
+  stage: number;
+  ageRange: string;
+  status: string;
+}
+
+const { stage, ageRange, status } = Astro.props;
+---
+
+<header class="ascent-header stage-roadmap-header">
+  <div class="ascent-brand">
+    <a class="ascent-logo" href="/" aria-label="返回螺旋总览">✦</a>
+    <div>
+      <a class="ascent-brand-title" href="/">小星星的物理漫游</a>
+      <span class="ascent-brand-subtitle">PURPLE SPIRAL · ROADMAP</span>
+    </div>
+  </div>
+  <div class="ascent-header-right">
+    <nav class="ascent-stage-nav" aria-label="切换阶段路线图">
+      <a class:list={{ active: stage === 1 }} href="/stages/1/">Stage 1</a>
+      <a class:list={{ active: stage === 2 }} href="/stages/2/">Stage 2</a>
+    </nav>
+    <div class="ascent-status"><span></span><strong>Stage {stage} ({ageRange}) · {status}</strong></div>
+  </div>
+</header>
